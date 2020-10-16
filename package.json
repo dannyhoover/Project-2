@@ -1,5 +1,5 @@
 {
-  "name": "node-express-handlebars",
+  "name": "project-2",
   "version": "1.0.0",
   "description": "",
   "main": "server.js",
@@ -8,14 +8,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dannyhoover/Node-Express-Handlebars.git"
+    "url": "git+https://github.com/dannyhoover/Project-2.git"
   },
-  "author": "",
+  "author": "Danny Hoover <dofjrtd@gmail.com> (http://dannyhoover.github.io)",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/dannyhoover/Node-Express-Handlebars/issues"
+    "url": "https://github.com/dannyhoover/Project-2/issues"
   },
-  "homepage": "https://github.com/dannyhoover/Node-Express-Handlebars#readme",
+  "homepage": "https://github.com/dannyhoover/Project-2#readme",
   "dependencies": {
     "bulma": "^0.9.1",
     "config.json": "0.0.4",

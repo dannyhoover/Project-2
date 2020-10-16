@@ -10,7 +10,8 @@ if (process.env.JAWSDB_URL) {
         port: 3306,
         host: 'localhost',
         user: 'root',
-        password: process.env.LOCAL_MYSQL_PASSWORD_DANNY,
+        password: 'Ashley&Flock08',
+//        password: process.env.LOCAL_MYSQL_PASSWORD_DANNY,
         database: 'recipe_db'
     })
 };

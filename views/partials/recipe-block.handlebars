@@ -1,0 +1,9 @@
+<li>
+    {{name}}
+
+    <button class="change-status" data-id="{{id}}" data-newstatus="{{save}}">
+        {{#if save}}Save{{else}}Removed{{/if}}
+    </button>
+
+    <button class="delete-recipe" data-id="{{this.id}}">Delete</button>
+</li>
