@@ -28,7 +28,7 @@ $(function () {
         var newStatus = $(this).data("newstatus");
 
         var newSaveState = {
-            eaten: newStatus
+            saved: newStatus
         };
 
         // Send the PUT request.
@@ -48,9 +48,9 @@ $(function () {
         // Make sure to preventDefault on a submit event.
         event.preventDefault();
 
-        var newrecipe = {
+        var newRecipe = {
             name: $("#ca").val().trim(),
-            eaten: $("[name=saved]:checked").val().trim()
+            saved: $("[name=saved]:checked").val().trim()
         };
 
         // Send the POST request.
