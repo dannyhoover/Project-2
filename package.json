@@ -1,0 +1,31 @@
+{
+  "name": "node-express-handlebars",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "npx if-env NODE_ENV=production && node server.js || npx nodemon"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannyhoover/Node-Express-Handlebars.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannyhoover/Node-Express-Handlebars/issues"
+  },
+  "homepage": "https://github.com/dannyhoover/Node-Express-Handlebars#readme",
+  "dependencies": {
+    "config.json": "0.0.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "handlebars": "^4.7.6",
+    "mysql": "^2.18.1"
+  },
+  "devDependencies": {
+    "if-env": "^1.0.4",
+    "nodemon": "^2.0.4"
+  }
+}
