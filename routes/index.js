@@ -1,7 +1,7 @@
-// const {Router} = require("express");
-// const router = Router();
+const {Router} = require("express");
+const router = Router();
 
-// router.use("/api", require("./apiRoutes"));
-// router.use("/", require("./htmlRoutes"));
+router.use("/api", require("./apiRoutes"));
+router.use("/", require("./htmlRoutes"));
 
-// module.exports = router;
+module.exports = router;

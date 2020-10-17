@@ -1,10 +1,10 @@
-// const {Router} = require("express");
-// const router = Router();
+const {Router} = require("express");
+const router = Router();
 
-// router.get("*", (req, res) => {
-//   res.render("index", {
-//     title: "Coolio"
-//   });
-// })
+router.get("*", (req, res) => {
+  res.render("index", {
+    title: "Coolio"
+  });
+})
 
-// module.exports = router;
+module.exports = router;
