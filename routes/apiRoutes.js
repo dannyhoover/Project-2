@@ -55,7 +55,7 @@ req.end(function (res) {
 $(function() {
     var params = {
         // Request parameters
-        "query": "{string}",
+        "query": "pumpkin",
         "start": "0",
         "count": "25",
         "spell": "true",
@@ -66,7 +66,7 @@ $(function() {
         beforeSend: function(xhrObj){
             // Request headers
             xhrObj.setRequestHeader("Accept","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","{subscription key}");
+            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","a04fac73b240433c92b08cc8bd471080");
         },
         type: "GET",
         // Request body
@@ -74,6 +74,7 @@ $(function() {
     })
     .done(function(data) {
         alert("success");
+        console.log(data);
     })
     .fail(function() {
         alert("error");
