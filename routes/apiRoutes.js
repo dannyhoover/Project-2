@@ -1,33 +1,64 @@
-const {Router} = require("express");
+const axios = require("axios");
+
+const { Router } = require("express");
 const router = Router();
 
 const db = require("../config/connection");
 
-router.get("/", (req, res) => {
-  res.json("hey, we sent some data from the server");
-})
+router.get("/recipes", (req, res) => {
+  const { items } = req.query;
+  console.log(items);
+  // use items to make query to third party api
+  // send back result
+
+  axios({
+    method: "GET",
+    url: "https://rapidapi.p.rapidapi.com/recipes/list",
+    params: { q: items },
+    headers: {
+      "x-rapidapi-host": "tasty.p.rapidapi.com",
+      "x-rapidapi-key": "0a9afa4613msh47a31f8fd322579p11f7cfjsnd2a4eacc7e59",
+    },
+  })
+    .then(function (result) {
+      console.log("success");
+      res.json(
+        result.data.results
+          .map(({ name }) => {
+            return { name };
+          })
+          .filter((recipe) => {
+            if (/chicken/gi.test(recipe.name)) return true;
+          })
+      );
+    })
+    .catch(function (err) {
+      console.error(err);
+    });
+});
+
+module.exports = router;
 
 // tasty API test
-var unirest = require("unirest");
+// var unirest = require("unirest");
 
-var req = unirest("GET", "https://rapidapi.p.rapidapi.com/recipes/auto-complete");
+// var req = unirest("GET", "https://rapidapi.p.rapidapi.com/recipes/auto-complete");
 
-req.query({
-    "prefix": "chicken soup"
-});
+// req.query({
+//     "prefix": "chicken soup"
+// });
 
-req.headers({
-    "x-rapidapi-host": "tasty.p.rapidapi.com",
-    "x-rapidapi-key": "0a9afa4613msh47a31f8fd322579p11f7cfjsnd2a4eacc7e59",
-    "useQueryString": true
-});
+// req.headers({
+//     "x-rapidapi-host": "tasty.p.rapidapi.com",
+//     "x-rapidapi-key": "0a9afa4613msh47a31f8fd322579p11f7cfjsnd2a4eacc7e59",
+//     "useQueryString": true
+// });
 
+// req.end(function (res) {
+//     if (res.error) throw new Error(res.error);
 
-req.end(function (res) {
-    if (res.error) throw new Error(res.error);
-
-    console.log(res.body);
-});
+//     console.log(res.body);
+// });
 
 // // API test
 // var unirest = require("unirest");
@@ -44,41 +75,8 @@ req.end(function (res) {
 //     "useQueryString": true
 // });
 
-
 // req.end(function (res) {
 //     if (res.error) throw new Error(res.error);
 
 //     console.log(res.body);
 // });
-
-// ESHA API test
-$(function() {
-    var params = {
-        // Request parameters
-        "query": "pumpkin",
-        "start": "0",
-        "count": "25",
-        "spell": "true",
-    };
-    
-    $.ajax({
-        url: "https://nutrition-api.esha.com/foods?" + $.param(params),
-        beforeSend: function(xhrObj){
-            // Request headers
-            xhrObj.setRequestHeader("Accept","application/json");
-            xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","a04fac73b240433c92b08cc8bd471080");
-        },
-        type: "GET",
-        // Request body
-        data: "{body}",
-    })
-    .done(function(data) {
-        alert("success");
-        console.log(data);
-    })
-    .fail(function() {
-        alert("error");
-    });
-});
-
-module.exports = router;

@@ -24,6 +24,7 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/recipesController.js");
 
 app.use(routes);
+app.use(require("./routes"));
 
 
 // Start our server so that it can begin listening to client requests.
