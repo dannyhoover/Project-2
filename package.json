@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/dannyhoover/Project-2#readme",
   "dependencies": {
+    "axios": "^0.20.0",
     "bulma": "^0.9.1",
     "config.json": "0.0.4",
     "dotenv": "^8.2.0",

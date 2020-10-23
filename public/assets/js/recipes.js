@@ -32,7 +32,7 @@ $(function () {
         };
 
         // Send the PUT request.
-        $.ajax("/api/recipes/" + id, {
+        $.ajax("/api/recipes?" + "items=" + "beef", {
             type: "PUT",
             data: newSaveState
         }).then(
