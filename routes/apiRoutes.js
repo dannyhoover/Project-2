@@ -7,7 +7,7 @@ const db = require("../config/connection");
 const { JSDOM } = require("jsdom");
 const { window } = new JSDOM("");
 const $ = require("jquery")(window);
-const searchLink = require("../public/assets/js/recipes");
+
 
 router.get("/recipes", (req, res) => {
   const { items } = req.query;
