@@ -23,27 +23,26 @@
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
-$(document).ready(function() {
-    console.log("test1");
-        $(".searchForm  .button").on("click", function (event) {
-            console.log("button worked");
-            let searchInput = $(".input").val();
-            console.log(searchInput);
-    
-            // Send the PUT request.
-            $.ajax("/api/recipes?" + "items=" + searchInput, {
-                type: "GET",
-                
-            }).then(
-                function () {
-                    console.log("ajax working");
-                    // Reload the page to get the updated list
-                    location.reload();
-                }
-            );
-        });
+const { JSDOM } = require("jsdom");
+const { window } = new JSDOM("");
+const $ = require("jquery")(window);
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function () {
+  console.log("test1");
+  $(".searchForm  .button").on("click", function (event) {
+    console.log("button worked");
+    let searchInput = $(".input").val();
+    console.log(searchInput);
+    // Send the PUT request.
+    $.ajax("/api/recipes?" + "items=" + searchInput, {
+      type: "GET",
+    }).then(function () {
+      console.log("ajax working");
+      // Reload the page to get the updated list
+      location.reload();
     });
-    
+  });
+});
     
     
         // $(".create-form").on("submit", function (event) {
