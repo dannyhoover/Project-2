@@ -4,6 +4,7 @@ const { Router } = require("express");
 const router = Router();
 
 const db = require("../config/connection");
+const searchLink = require("../public/assets/js/recipes");
 
 router.get("/recipes", (req, res) => {
   const { items } = req.query;
@@ -11,16 +12,17 @@ router.get("/recipes", (req, res) => {
   // use items to make query to third party api
   // send back result
 
-  axios({
+  const options = {
     method: "GET",
-    url: "https://rapidapi.p.rapidapi.com/recipes/list",
-    params: { q: items },
+    url: "https://rapidapi.p.rapidapi.com/recipes/list/items=" + searchInput,
     headers: {
       "x-rapidapi-host": "tasty.p.rapidapi.com",
       "x-rapidapi-key": "0a9afa4613msh47a31f8fd322579p11f7cfjsnd2a4eacc7e59",
     },
-  })
-    .then(function (result) {
+
+  };
+
+    axios.request(options).then(function (result) {
       console.log("success");
       res.json(
         result.data.results
@@ -28,7 +30,8 @@ router.get("/recipes", (req, res) => {
             return { name };
           })
           .filter((recipe) => {
-            if (/chicken/gi.test(recipe.name)) return true;
+            if (recipe.name) return true;
+            console.log(name);
           })
       );
     })
