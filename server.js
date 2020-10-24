@@ -24,8 +24,9 @@ app.set("view engine", "handlebars");
 // var routes = require("./public/assets/js/recipes.js");
 
 // app.use(routes);
-app.use("/api", require("./routes/apiRoutes"));
 app.use("/", require("./routes/htmlRoutes"));
+app.use("/api", require("./routes/apiRoutes"));
+
 
 
 
