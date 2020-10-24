@@ -23,9 +23,7 @@
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
-const { JSDOM } = require("jsdom");
-const { window } = new JSDOM("");
-const $ = require("jquery")(window);
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
   console.log("test1");

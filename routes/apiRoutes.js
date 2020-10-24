@@ -4,9 +4,7 @@ const { Router } = require("express");
 const router = Router();
 
 const db = require("../config/connection");
-const { JSDOM } = require("jsdom");
-const { window } = new JSDOM("");
-const $ = require("jquery")(window);
+
 
 
 router.get("/recipes", (req, res) => {
