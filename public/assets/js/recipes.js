@@ -23,13 +23,12 @@
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 
-const { JSDOM } = require("jsdom");
-const { window } = new JSDOM("");
-const $ = require("jquery")(window);
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
   console.log("test1");
-  $(".searchForm  .button").on("click", function (event) {
+  $(".control  .button-search").on("click", function (event) {
+    event.preventDefault();
     console.log("button worked");
     let searchInput = $(".input").val();
     console.log(searchInput);
