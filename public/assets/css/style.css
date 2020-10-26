@@ -1,11 +1,15 @@
 body {
-    background-image: url('picture/spoon_tomatosalad.jpg');
-    background-repeat: no-repeat;
-    background-attachment: fixed;  
-    background-size: cover;
-  }
-  
-  #section2 {
-    height: 600px;
-    background-color: yellow;
-  }
+  background-image: url('picture/spoon_tomatosalad.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;  
+  background-size: cover;
+}
+
+#section2 {
+ 
+  background-image: url('picture/pexels-alexy-almond-3756498.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+ 
+}
