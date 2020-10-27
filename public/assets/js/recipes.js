@@ -1,3 +1,77 @@
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function () {
+  console.log("test1");
+  $(".control  .button-search").on("click", function (event) {
+    event.preventDefault();
+    console.log("button worked");
+    let searchInput = $(".input").val();
+    console.log(searchInput);
+    // Send the PUT request.
+    $.ajax("/api/recipes?" + "items=" + searchInput, {
+      type: "GET",
+    }).then(function () {
+      console.log("ajax working");
+      // Reload the page to get the updated list
+      //location.reload();
+    });
+  });
+});
+
+// Make sure we wait to attach our handlers until the DOM is fully loaded.
+$(function () {
+  $(".change-status").on("click", function (event) {
+    var id = $(this).data("id");
+    var newStatus = $(this).data("newstatus");
+
+    var newSaveState = {
+      saved: newStatus,
+    };
+
+    // Send the PUT request.
+    $.ajax("/api/recipes/" + id, {
+      type: "PUT",
+      data: newSaveState,
+    }).then(function () {
+      console.log("changed status to", newStatus);
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  });
+
+  $(".create-form").on("submit", function (event) {
+    // Make sure to preventDefault on a submit event.
+    event.preventDefault();
+
+    var newRecipe = {
+      name: $("#ca").val().trim(),
+      saved: $("[name=saved]:checked").val().trim(),
+    };
+
+    // Send the POST request.
+    $.ajax("/api/recipes", {
+      type: "POST",
+      data: newRecipe,
+    }).then(function () {
+      console.log("created new recipe");
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  });
+
+  $(".delete-recipe").on("click", function (event) {
+    var id = $(this).data("id");
+
+    // Send the DELETE request.
+    $.ajax("/api/recipes/" + id, {
+      type: "DELETE",
+    }).then(function () {
+      console.log("deleted recipe", id);
+      // Reload the page to get the updated list
+      location.reload();
+    });
+  });
+});
+
 // const searchForm = $("#recipe-search-form");
 
 
@@ -21,63 +95,3 @@
 //     }
 // }
 
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-
-
-// Make sure we wait to attach our handlers until the DOM is fully loaded.
-$(function () {
-  console.log("test1");
-  $(".control  .button-search").on("click", function (event) {
-    event.preventDefault();
-    console.log("button worked");
-    let searchInput = $(".input").val();
-    console.log(searchInput);
-    // Send the PUT request.
-    $.ajax("/api/recipes?" + "items=" + searchInput, {
-      type: "GET",
-    }).then(function () {
-      console.log("ajax working");
-      // Reload the page to get the updated list
-      //location.reload();
-    });
-  });
-});
-    
-    
-        // $(".create-form").on("submit", function (event) {
-        //     // Make sure to preventDefault on a submit event.
-        //     event.preventDefault();
-    
-        //     var newRecipe = {
-        //         name: $("#ca").val().trim(),
-        //         saved: $("[name=saved]:checked").val().trim()
-        //     };
-    
-        //     // Send the POST request.
-        //     $.ajax("/api/recipes", {
-        //         type: "POST",
-        //         data: newRecipe
-        //     }).then(
-        //         function () {
-        //             console.log("created new recipe");
-        //             // Reload the page to get the updated list
-        //             location.reload();
-        //         }
-        //     );
-        // });
-    
-        // $(".delete-recipe").on("click", function (event) {
-        //     var id = $(this).data("id");
-    
-        //     // Send the DELETE request.
-        //     $.ajax("/api/recipes/" + id, {
-        //         type: "DELETE"
-        //     }).then(
-        //         function () {
-        //             console.log("deleted recipe", id);
-        //             // Reload the page to get the updated list
-        //             location.reload();
-        //         }
-        //     );
-        // });
-    

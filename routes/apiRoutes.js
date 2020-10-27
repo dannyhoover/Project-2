@@ -1,13 +1,10 @@
 const axios = require("axios");
-
 const { Router } = require("express");
 const router = Router();
-
 const db = require("../config/connection");
 
 
-
-router.get("/recipes", (req, res) => {
+router.get("/recipe", (req, res) => {
   const { items } = req.query;
   console.log(items);
   // use items to make query to third party api

@@ -17,16 +17,30 @@ app.use(express.json());
 
 // Set Handlebars.
 var exphbs = require("express-handlebars");
+// const path = require("path");
+// app.engine(
+//   "exphbs",
+//   exphbs({
+//     extname: "exphbs",
+//     defaultLayout: "base",
+//     layoutsDir: path.join(__dirname, "views/layouts"),
+//     partialsDir: [
+//       //  path to your partials
+//       path.join(__dirname, "views/partials"),
+//     ],
+//   })
+// );
+
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
-// var routes = require("./public/assets/js/recipes.js");
+var routes = require("./controllers/recipesController");
 
-// app.use(routes);
-app.use("/", require("./routes/htmlRoutes"));
-app.use("/api", require("./routes/apiRoutes"));
+ app.use(routes);
+// app.use("/", require("./routes/htmlRoutes"));
+// app.use("/api", require("./routes/apiRoutes"));
 
 
 

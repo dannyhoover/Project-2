@@ -1,5 +1,5 @@
 body {
-  background-image: url('picture/spoon_tomatosalad.jpg');
+  /* background-image: url('picture/spoon_tomatosalad.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;  
   background-size: cover;
@@ -7,9 +7,52 @@ body {
 
 #section2 {
  
-  background-image: url('picture/pexels-alexy-almond-3756498.jpg');
+  /* background-image: url('picture/pexels-alexy-almond-3756498.jpg'); */
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-size: cover;
  
+}
+
+.container {
+  padding-top: 10px;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 {
+  text-align: center;
+  font-style: italic;
+}
+
+li {
+  padding: 5px;
+  margin: 5px;
+  flex-wrap: wrap;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.create-update-form {
+  padding: 5px;
+  margin: 5px;
+  background: aqua;
+}
+
+.form-group {
+  margin-bottom: 5px;
+}
+
+ul {
+  flex-wrap: wrap;
+}
+
+.row {
+  padding-top: 20px;
 }
