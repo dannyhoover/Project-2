@@ -7,7 +7,7 @@ Users can input all the food they have in front of them, API will spit out recip
 
 [API LINK](https://esha.com/products/nutrition-database-api/)
 
-Framework: Bulma
+
 
 ## Table of Contents
  * [Description](#Description)
@@ -28,6 +28,8 @@ Once on the home page you can enter what food you'd like to search for and the A
 allow for user to have their own account what saved recipes they have search for in the past.
 
 ## Contributing
+
+If you like to contribute to the project please contact us thru github before making any changes to the repo.
 
 ## License
 
