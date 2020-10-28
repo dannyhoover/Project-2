@@ -40,8 +40,8 @@ app.set("view engine", "handlebars");
 var routes = require("./controllers/recipesController");
 
  app.use(routes);
-// app.use("/", require("./routes/htmlRoutes"));
-// app.use("/api", require("./routes/apiRoutes"));
+ app.use("/", require("./routes/htmlRoutes"));
+ app.use("/api", require("./routes/apiRoutes"));
 
 
 

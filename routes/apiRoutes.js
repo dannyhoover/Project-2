@@ -12,7 +12,7 @@ router.get("/recipe", (req, res) => {
 
   const options = {
     method: "GET",
-    url: "https://rapidapi.p.rapidapi.com/recipes/list/items=" + beef,
+    url: "https://rapidapi.p.rapidapi.com/recipes/list/items=" + chicken,
     headers: {
       "x-rapidapi-host": "tasty.p.rapidapi.com",
       "x-rapidapi-key": "0a9afa4613msh47a31f8fd322579p11f7cfjsnd2a4eacc7e59",
@@ -63,7 +63,7 @@ router.get("/recipes", (req, res) => {
             return { name };
           })
           .filter((recipe) => {
-            if (/beef/gi.test(recipe.name)) return true;
+            if (/chicken/gi.test(recipe.name)) return true;
           })
       );
     })

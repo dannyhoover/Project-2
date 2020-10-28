@@ -57,8 +57,14 @@ ul {
   padding-top: 20px;
 }
 
+.list1 {
+  padding-top: 30px;
+  text-align: center;
+  padding-bottom: 30px;
+}
+
 .list2 {
-  padding-top: 50px;
+  padding-top: 30px;
   text-align: center;
 }
 
