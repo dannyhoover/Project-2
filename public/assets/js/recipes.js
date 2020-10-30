@@ -1,21 +1,58 @@
+$.ajax("/api/recipes", {
+  type: "POST",
+  headers: {
+    'Content-Type': "application/json"
+  },  
+  data: JSON.stringify({recipeIds:["1", "2", "3"]})
+})
+
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
-  console.log("test1");
   $(".control  .button-search").on("click", function (event) {
     event.preventDefault();
-    console.log("button worked");
     let searchInput = $(".input").val();
-    console.log(searchInput);
+    if (!searchInput) {
+      return;
+    }
     // Send the PUT request.
     $.ajax("/api/recipes?" + "items=" + searchInput, {
       type: "GET",
-    }).then(function () {
-      console.log("ajax working");
+    }).then(function (data) {
+      $("#search-results").empty().append(...data.slice(0, 3).map(function({name, id}) {
+        return $(
+          `<div class="column is-4">
+            <div class="card is-shady">
+              <div class="card-image has-text-centered">
+                  <i class="fa fa-paw"></i>
+              </div>
+              <div class="card-content">
+                  <div class="content">
+                      <h4>${name}</h4>
+                      <p>Easy chicken tacos that only takes 30 minutes. All you need is some chicken, some taco seasoning, some veggies, and your medium for taco goodness.</p>
+                      <p><a href="#">Learn more</a></p>
+                  </div>
+                </div>
+              </div>
+          </div>`).on("click", () => {
+            $.ajax("/api/recipes", {
+              type: "POST",
+              headers: {
+                'Content-Type': "application/json"
+              },  
+              data: JSON.stringify({recipeIds:[id]})
+            }).then(res => {
+              console.log(res);
+            });
+          });
+      }));
       // Reload the page to get the updated list
       //location.reload();
+    }).catch(function(err) {
+      console.error(err);
     });
   });
 });
+// Do this for the path to saved recipes
 
 // Make sure we wait to attach our handlers until the DOM is fully loaded.
 $(function () {
